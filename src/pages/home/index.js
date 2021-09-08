@@ -6,6 +6,7 @@ import {
   View,
   Image,
   Pressable,
+  ScrollView,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {GREY, GREY2, PRIMARY, WHITE} from '../../styles/Colors';
@@ -13,6 +14,7 @@ import {img_profile} from '../../assets/images';
 import {TextBold, TextMedium} from '../../styles/TextStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ScanButton from '../../components/buttons/ScanButton';
+import CardSchedule from '../../components/card/CardSchedule';
 const Home = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -37,9 +39,15 @@ const Home = () => {
             <Ionicons name="qr-code-outline" size={24} />
           </ScanButton>
         </View>
-        <View style={styles.body}>
-          <TextBold>Jadwal Hari Ini</TextBold>
-        </View>
+        <ScrollView>
+          <View style={styles.body}>
+            <TextBold>Jadwal Hari Ini</TextBold>
+            <CardSchedule title="Matematika" time="08:00-10:00" />
+            <CardSchedule title="B. Inggris" time="08:00-10:00" />
+            <CardSchedule title="Komputer" time="08:00-10:00" />
+            <CardSchedule title="B. Indonesia" time="08:00-10:00" />
+          </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
