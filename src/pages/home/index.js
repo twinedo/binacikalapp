@@ -22,7 +22,10 @@ import {TextBold, TextMedium} from '../../styles/TextStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ScanButton from '../../components/buttons/ScanButton';
 import CardSchedule from '../../components/card/CardSchedule';
+import {useNavigation} from '@react-navigation/native';
+
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar
@@ -39,7 +42,12 @@ const Home = () => {
                 <TextBold>Muhammad OKtariadi</TextBold>
                 <TextMedium>95133321</TextMedium>
               </View>
-              <Ionicons name="settings" size={24} color={GREY2} />
+              <Ionicons
+                name="settings"
+                size={24}
+                color={GREY2}
+                onPress={() => navigation.navigate('Setting')}
+              />
             </View>
 
             <ScanButton style={{marginVertical: 10}}>
