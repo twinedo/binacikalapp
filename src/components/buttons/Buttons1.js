@@ -1,15 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable} from 'react-native';
-import {GREEN, PRIMARY} from '../../styles/Colors';
+import {StyleSheet, Pressable} from 'react-native';
+import {GREEN, WHITE} from '../../styles/Colors';
 import {TextBold} from '../../styles/TextStyles';
 
-const Buttons1 = ({onPress, text}, props) => {
+const Buttons1 = ({onPress, text, style}) => {
   return (
-    <Pressable
-      {...props}
-      onPress={onPress}
-      style={[styles.container, props.style]}>
-      <TextBold>{text}</TextBold>
+    <Pressable onPress={onPress} style={[styles.container, style]}>
+      <TextBold style={{color: WHITE}}>{text}</TextBold>
     </Pressable>
   );
 };
@@ -25,5 +22,4 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 45,
   },
-  text: {},
 });

@@ -6,6 +6,8 @@ import {TextBold} from '../../styles/TextStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/core';
+import Buttons1 from '../../components/buttons/Buttons1';
+import Buttons2 from '../../components/buttons/Buttons2';
 
 const Setting = () => {
   const navigation = useNavigation();
@@ -17,20 +19,24 @@ const Setting = () => {
           <TextBold style={{fontSize: 20}}>Setting</TextBold>
         </Pressable>
         <View style={{flex: 1}}>
-          <View style={styles.cardMenu}>
-            <MaterialCommunityIcons name="account" size={24} />
-            <TextBold style={{marginLeft: 10, flex: 1}}>Accounts</TextBold>
-            <MaterialCommunityIcons name="chevron-right" size={24} />
-          </View>
-          <View style={styles.cardMenu}>
-            <MaterialCommunityIcons name="card-account-details" size={24} />
-            <TextBold style={{marginLeft: 10, flex: 1}}>e-NIC</TextBold>
-            <MaterialCommunityIcons name="chevron-right" size={24} />
-          </View>
+          <Buttons2
+            icon={<MaterialCommunityIcons name="account" size={24} />}
+            text="Accounts"
+            onPress={() => {}}
+          />
+          <Buttons2
+            icon={
+              <MaterialCommunityIcons name="card-account-details" size={24} />
+            }
+            text="e-NIC"
+            onPress={() => {}}
+          />
         </View>
-        <Pressable style={styles.btnLogout} onPress={() => {}}>
-          <TextBold style={{color: WHITE}}>Logout</TextBold>
-        </Pressable>
+        <Buttons1
+          text="Logout"
+          style={{backgroundColor: SECONDARY}}
+          onPress={() => {}}
+        />
       </View>
     </SafeAreaView>
   );
