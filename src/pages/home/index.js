@@ -59,7 +59,7 @@ const Home = () => {
               <Ionicons name="exit-outline" size={24} color={WHITE} />
             </ScanButton>
             <Pressable style={styles.wrapperBtnData}>
-              <TextBold style={{color: WHITE, marginBottom: 10, fontSize: 16}}>
+              <TextBold style={styles.txtNotComplete}>
                 Anda belum melengkapi data
               </TextBold>
               <Pressable style={styles.btnLengkapi}>
@@ -134,4 +134,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  txtNotComplete: {color: WHITE, marginBottom: 10, fontSize: 16},
 });
