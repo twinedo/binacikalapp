@@ -9,7 +9,14 @@ import {
   ScrollView,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {GREY, GREY2, PRIMARY, WHITE} from '../../styles/Colors';
+import {
+  GREEN,
+  GREY,
+  GREY2,
+  PRIMARY,
+  SECONDARY,
+  WHITE,
+} from '../../styles/Colors';
 import {img_profile} from '../../assets/images';
 import {TextBold, TextMedium} from '../../styles/TextStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -23,32 +30,49 @@ const Home = () => {
         translucent
         barStyle="light-content"
       />
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.headerProfile}>
-            <Image source={img_profile} style={styles.imgProfile} />
-            <View style={styles.detailProfile}>
-              <TextBold>Muhammad OKtariadi</TextBold>
-              <TextMedium>95133321</TextMedium>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <View style={styles.headerProfile}>
+              <Image source={img_profile} style={styles.imgProfile} />
+              <View style={styles.detailProfile}>
+                <TextBold>Muhammad OKtariadi</TextBold>
+                <TextMedium>95133321</TextMedium>
+              </View>
+              <Ionicons name="settings" size={24} color={GREY2} />
             </View>
-            <Ionicons name="settings" size={24} color={GREY2} />
+
+            <ScanButton style={{marginVertical: 10}}>
+              <TextBold style={{color: WHITE}}>Klik untuk Checkin</TextBold>
+              <Ionicons name="qr-code-outline" size={24} color={WHITE} />
+            </ScanButton>
+            <ScanButton style={{marginVertical: 10, backgroundColor: GREEN}}>
+              <TextBold style={{color: WHITE}}>Klik untuk Checkout</TextBold>
+              <Ionicons name="exit-outline" size={24} color={WHITE} />
+            </ScanButton>
+            <Pressable style={styles.wrapperBtnData}>
+              <TextBold style={{color: WHITE, marginBottom: 10, fontSize: 16}}>
+                Anda belum melengkapi data
+              </TextBold>
+              <Pressable style={styles.btnLengkapi}>
+                <TextBold>Lengkapi</TextBold>
+              </Pressable>
+            </Pressable>
           </View>
 
-          <ScanButton style={{marginTop: 10}}>
-            <TextBold>Scan untuk Absen</TextBold>
-            <Ionicons name="qr-code-outline" size={24} />
-          </ScanButton>
-        </View>
-        <ScrollView>
           <View style={styles.body}>
             <TextBold>Jadwal Hari Ini</TextBold>
             <CardSchedule title="Matematika" time="08:00-10:00" />
             <CardSchedule title="B. Inggris" time="08:00-10:00" />
             <CardSchedule title="Komputer" time="08:00-10:00" />
             <CardSchedule title="B. Indonesia" time="08:00-10:00" />
+            <View style={styles.wrapperNoSchedule}>
+              <Ionicons name="calendar-sharp" size={80} color={GREY2} />
+              <TextBold style={{color: GREY2}}>Tidak ada Jadwal</TextBold>
+            </View>
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -83,5 +107,23 @@ const styles = StyleSheet.create({
     padding: 20,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+  },
+  wrapperBtnData: {
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: SECONDARY,
+  },
+  btnLengkapi: {
+    borderRadius: 5,
+    backgroundColor: WHITE,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    elevation: 2,
+  },
+  wrapperNoSchedule: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

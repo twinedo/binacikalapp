@@ -1,14 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, Pressable} from 'react-native';
-import {GREEN, WHITE} from '../../styles/Colors';
-import {TextBold} from '../../styles/TextStyles';
+import {GREEN, BLUE} from '../../styles/Colors';
 
-const ScanButton = ({onPress, children}, props) => {
+const ScanButton = ({onPress, children, style}) => {
   return (
-    <Pressable
-      {...props}
-      onPress={onPress}
-      style={[styles.container, props.style]}>
+    <Pressable onPress={onPress} style={[styles.container, style]}>
       {children}
     </Pressable>
   );
@@ -21,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 5,
-    backgroundColor: GREEN,
+    backgroundColor: BLUE,
     width: '100%',
     height: 45,
     flexDirection: 'row',
