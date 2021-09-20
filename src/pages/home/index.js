@@ -50,7 +50,9 @@ const Home = () => {
               />
             </View>
 
-            <ScanButton style={{marginVertical: 10}}>
+            <ScanButton
+              style={{marginVertical: 10}}
+              onPress={() => navigation.navigate('Scanner')}>
               <TextBold style={{color: WHITE}}>Klik untuk Checkin</TextBold>
               <Ionicons name="qr-code-outline" size={24} color={WHITE} />
             </ScanButton>
